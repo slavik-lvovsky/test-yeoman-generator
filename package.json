@@ -3,14 +3,14 @@
 	"displayName": "Test Yeoman Generator",
 	"description": "Simple vscode extension to test Yeoman Generator",
 	"version": "0.0.1",
-	"publisher": "SAPOS",
+	"publisher": "slavik-lvovsky",
 	"author": {
-		"name": "SAP SE"
+		"name": "Slavik Lvovsky"
 	},
-	"license": "Apache 2.0",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/SAP/yeoman-ui.git"
+		"url": "https://github.com/slavik-lvovsky/test-yeoman-generator.git"
 	},
 	"engines": {
 		"vscode": "^1.49.0"
@@ -21,7 +21,8 @@
 	"activationEvents": [
 		"onCommand:test-env-api.gen"
 	],
-	"main": "./extension.js",
+	"main": "./dist/extension.js",
+	"icon": "ext_logo.png",
 	"contributes": {
 		"commands": [
 			{
@@ -30,10 +31,21 @@
 			}
 		]
 	},
+	"scripts": {
+		"vscode:prepublish": "webpack --mode production",
+		"webpack": "webpack --mode development",
+		"webpack-dev": "webpack --mode development --watch",
+		"package": "vsce package ."
+	},
 	"dependencies": {
 		"yeoman-environment": "2.10.3"
 	},
 	"devDependencies": {
-		"@types/vscode": "^1.49.0"
+		"@types/vscode": "^1.49.0",
+		"webpack": "^4.44.2",
+		"webpack-cli": "^3.3.12",
+		"ts-loader": "8.0.4",
+		"vsce": "1.80.0",
+		"string-replace-loader": "2.3.0"
 	}
 }
