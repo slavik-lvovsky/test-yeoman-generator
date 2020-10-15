@@ -31,7 +31,7 @@ async function testGen() {
 		try {
 			const gen = env.create(namespace);
 			env.runGenerator(gen);
-			vscode.window.showInformationMessage(_.get(gen, "_globalConfig.name") + " created and running ...");
+			vscode.window.showInformationMessage(_.get(gen, "_globalConfig.name", namespace) + " created and running ...");
 		} catch (error) {
 			vscode.window.showErrorMessage(error.stack);
 		}
