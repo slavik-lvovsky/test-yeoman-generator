@@ -1,6 +1,5 @@
 .vscode
 .git
-webpack.config.js
 *.vsix
 package-lock.json
 .gitignore
