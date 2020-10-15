@@ -1,5 +1,9 @@
 .vscode
-node_modules
-extension.js
-jsconfig.json
+.git
 webpack.config.js
+*.vsix
+package-lock.json
+.gitignore
+.vscodeignore
+package-lock.json
+jsconfig.json
