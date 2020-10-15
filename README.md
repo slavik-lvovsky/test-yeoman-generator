@@ -1,1 +1,1 @@
-# test-yeoman-generator
+# test-yeoman-generator in vscode extension
