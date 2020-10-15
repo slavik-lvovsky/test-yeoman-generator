@@ -27,11 +27,14 @@ async function testGen() {
 	if (genMeta) {
 		const env = Environment.createEnv();
 		env.lookup({ packagePaths: genMeta.packagePath });
-		const gen = env.create(namespace);
-		env.runGenerator(gen);
 
-
-		vscode.window.showInformationMessage(_.get(gen, "_globalConfig.name") + " created and running ...");
+		try {
+			const gen = env.create(namespace);
+			env.runGenerator(gen);
+			vscode.window.showInformationMessage(_.get(gen, "_globalConfig.name") + " created and running ...");
+		} catch (error) {
+			vscode.window.showErrorMessage(error.stack);
+		}
 	}
 }
 
