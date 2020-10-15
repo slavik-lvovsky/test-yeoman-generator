@@ -22,7 +22,7 @@ async function testGen() {
 			const genMeta = _.filter(gensMeta, {namespace})[0];
 			
 			const env = Environment.createEnv();
-			env.lookup({packagePaths: genMeta.generatorPath});
+			env.lookup({packagePaths: [genMeta.packagePath]});
 			
 			const gen = env.create(namespace);
 			env.runGenerator(gen);
