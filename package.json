@@ -2,7 +2,7 @@
 	"name": "test-yeoman-generator",
 	"displayName": "Test Yeoman Generator",
 	"description": "Simple vscode extension to test Yeoman Generator",
-	"version": "0.0.5",
+	"version": "0.0.6",
 	"publisher": "slavik-lvovsky",
 	"author": {
 		"name": "Slavik Lvovsky"
@@ -20,7 +20,8 @@
 	],
 	"activationEvents": [
 		"*",
-		"onCommand:env.run.gen"
+		"onCommand:env.run.gen",
+		"onCommand:env.run.process"
 	],
 	"main": "./extension.js",
 	"icon": "ext_logo.png",
@@ -29,6 +30,10 @@
 			{
 				"command": "env.run.gen",
 				"title": "Test Gen"
+			},
+			{
+				"command": "env.run.gen.process",
+				"title": "Test Gen Process"
 			}
 		]
 	},
