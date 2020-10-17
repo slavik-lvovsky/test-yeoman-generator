@@ -1,12 +1,9 @@
 
-const Environment = require('yeoman-environment');
+const env = require('./env');
 
 process.on("message", req => {
 	try {
-		const env = Environment.createEnv();
-		env.lookup({ packagePaths: req.packagePath });
-		const gen = env.create(req.namespace);
-		env.runGenerator(gen);
+		const gen = env.runGenerator(req.packagePath, req.namespace);
 		process.send(`${gen._globalConfig.name} (process)`);
 	} catch (error) {
 		process.send(error.message);

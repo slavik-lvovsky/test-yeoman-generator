@@ -36,10 +36,8 @@ async function testGen(useProcess) {
 			if (useProcess) {
 				envChild.send({packagePath, namespace});
 			} else {
-				const env = Environment.createEnv();
-				env.lookup({ packagePaths: packagePath });
-				const gen = env.create(namespace);
-				env.runGenerator(gen);
+				const env = require("./env");
+				const gen = env.runGenerator(packagePath, namespace);
 				vscode.window.showInformationMessage(gen._globalConfig.name);
 			}
 		}
